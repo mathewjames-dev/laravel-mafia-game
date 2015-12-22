@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CrimeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         if(Auth::user()->jailtime <= Carbon::now()) {
@@ -63,7 +67,7 @@ class CrimeController extends Controller
                 else
                 {
                     session()->flash('flash_message_important', 'You failed the crime!');
-                    $user->jailtime = Carbon::now()->addMinute(1);
+                    $user->jailtime = Carbon::now()->addSeconds(20);
                     $user->save();
                     return redirect('/crime');
                 }
@@ -94,7 +98,7 @@ class CrimeController extends Controller
                 else
                 {
                     session()->flash('flash_message_important', 'You failed the crime!');
-                    $user->jailtime = Carbon::now()->addMinute(2);
+                    $user->jailtime = Carbon::now()->addSeconds(20);
                     $user->save();
                     return redirect('/crime');
                 }
@@ -126,7 +130,7 @@ class CrimeController extends Controller
                 else
                 {
                     session()->flash('flash_message_important', 'You failed the crime!');
-                    $user->jailtime = Carbon::now()->addMinute(5);
+                    $user->jailtime = Carbon::now()->addMinute(1);
                     $user->save();
                     return redirect('/crime');
                 }
@@ -158,7 +162,7 @@ class CrimeController extends Controller
                 else
                 {
                     session()->flash('flash_message_important', 'You failed the crime!');
-                    $user->jailtime = Carbon::now()->addMinute(10);
+                    $user->jailtime = Carbon::now()->addMinute(1);
                     $user->save();
                     return redirect('/crime');
                 }
@@ -190,7 +194,7 @@ class CrimeController extends Controller
                 else
                 {
                     session()->flash('flash_message_important', 'You failed the crime!');
-                    $user->jailtime = Carbon::now()->addMinute(30);
+                    $user->jailtime = Carbon::now()->addMinute(5);
                     $user->save();
                     return redirect('/crime');
                 }

@@ -62,4 +62,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		$this->roles()->detach($role);
 	}
 
+	public function banks()
+	{
+		return $this->hasOne('App\Bank');
+	}
+
 }

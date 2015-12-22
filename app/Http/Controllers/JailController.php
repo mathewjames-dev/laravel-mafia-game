@@ -11,6 +11,10 @@ use Carbon\Carbon;
 
 class JailController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +27,9 @@ class JailController extends Controller
         }
         else
         {
-            return view('jail');
+            $user = Auth::user();
+            $jailtime = $user->jailtime;
+            return view('jail.jail', compact('jailtime'));
         }
     }
 

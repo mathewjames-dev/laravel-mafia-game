@@ -2,6 +2,6 @@
 
 @section('content')
 
-    You're jailed!
+    You're jailed until {{ $jailtime }}
 
 @stop

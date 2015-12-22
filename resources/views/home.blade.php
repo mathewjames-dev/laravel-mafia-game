@@ -25,6 +25,8 @@
 					<a href="/search">Search a player</a>
 					<br>
 					<a href="/crime">Commit a Crime</a>
+					<br>
+					<a href="/bank">Bank</a>
 				</div>
 
 				<div class="panel-heading">Social</div>
