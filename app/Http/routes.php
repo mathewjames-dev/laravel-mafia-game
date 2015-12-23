@@ -25,6 +25,8 @@ Route::post('roles', 'AdminController@createRole');
 Route::post('admin', 'AdminController@editUser');
 Route::post('admin', 'AdminController@setState');
 Route::post('admin', 'AdminController@makeGun');
+Route::post('admin', 'AdminController@makeArmor');
+Route::post('admin', 'AdminController@makeCar');
 
 
 /// PROFILE ///

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArmorsTable extends Migration
+class CreateCarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,14 @@ class CreateArmorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('armors', function(Blueprint $table)
+        Schema::create('cars', function(Blueprint $table)
         {
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->text('description');
             $table->string('image');
-            $table->integer('defence');
+            $table->integer('armor');
+            $table->integer('speed');
             $table->string('value');
             $table->string('price');
             $table->timestamps();
@@ -32,6 +33,6 @@ class CreateArmorsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('armors');
+        Schema::drop('cars');
     }
 }

@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use App\Role;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -75,5 +74,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	public function armors()
 	{
 		return $this->belongsToMany('App\Armor');
+	}
+
+	public function cars()
+	{
+		return $this->belongsToMany('App\Car');
 	}
 }

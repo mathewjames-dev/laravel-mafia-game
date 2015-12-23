@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests\CreateRoleRequest;
 use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\MakeGunRequest;
+use App\Http\Requests\MakeArmorRequest;
+use App\Armor;
+use App\Car;
+use App\Http\Requests\MakeCarRequest;
 
 class AdminController extends Controller
 {
@@ -77,6 +81,35 @@ class AdminController extends Controller
         $gun->accuracy = Input::get('accuracy');
         $gun->price = Input::get('price');
         $gun->save();
+
+        return redirect('/admin');
+    }
+
+    public function makeArmor(MakeArmorRequest $request)
+    {
+        $armor = new Armor();
+        $armor->name = Input::get('name');
+        $armor->description = Input::get('description');
+        $armor->image = Input::get('image');
+        $armor->defence = Input::get('defence');
+        $armor->value = Input::get('value');
+        $armor->price = Input::get('price');
+        $armor->save();
+
+        return redirect('/admin');
+    }
+
+    public function makeCar(MakeCarRequest $request)
+    {
+        $car = new Car();
+        $car->name = Input::get('name');
+        $car->description = Input::get('description');
+        $car->image = Input::get('image');
+        $car->speed = Input::get('speed');
+        $car->armor = Input::get('armor');
+        $car->value = Input::get('value');
+        $car->price = Input::get('price');
+        $car->save();
 
         return redirect('/admin');
     }
