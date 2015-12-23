@@ -22,6 +22,8 @@ use App\Http\Requests\MakeArmorRequest;
 use App\Armor;
 use App\Car;
 use App\Http\Requests\MakeCarRequest;
+use App\Http\Requests\MakeLocationRequest;
+use App\Location;
 
 class AdminController extends Controller
 {
@@ -110,6 +112,16 @@ class AdminController extends Controller
         $car->value = Input::get('value');
         $car->price = Input::get('price');
         $car->save();
+
+        return redirect('/admin');
+    }
+
+    public function makeLocation(MakeLocationRequest $request)
+    {
+        $location = new Location();
+        $location->location = Input::get('location');
+        $location->price = Input::get('price');
+        $location->save();
 
         return redirect('/admin');
     }

@@ -16,6 +16,11 @@
                 @foreach ($user->armors as $armor)
                     <li> {{ $armor->name }}, {{ $armor->defence }}, {{ $armor->value }}</li>
                 @endforeach
+                <br>
+                Car (Name, Armor, Speed, Value):<br>
+                @foreach ($user->cars as $car)
+                    <li> {{ $car->name }}, {{ $car->armor }}, {{ $car->speed }}, {{ $car->value }}</li>
+                @endforeach
             </div>
         </div>
     </div>

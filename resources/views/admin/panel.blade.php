@@ -125,32 +125,34 @@
                 {!! Form::close() !!}
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="group">
+                {!! Form::open(['action' => 'AdminController@createRole']) !!}
+                <div class="form-group">
+                    {!! Form::label('name', 'Role Name:') !!}
+                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('display_name', 'Display Name:') !!}
+                    {!! Form::text('display_name', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('description', 'Role Description:') !!}
+                    {!! Form::text('description', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::submit('Create Role', ['class' => 'btn btn-primary form-control']) !!}
+                </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+
 
         <div class="col-md-12">
-            <div class="col-md-3">
-                <div class="group">
-                    {!! Form::open(['action' => 'AdminController@createRole']) !!}
-                    <div class="form-group">
-                        {!! Form::label('name', 'Role Name:') !!}
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                    </div>
 
-                    <div class="form-group">
-                        {!! Form::label('display_name', 'Display Name:') !!}
-                        {!! Form::text('display_name', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::label('description', 'Role Description:') !!}
-                        {!! Form::text('description', null, ['class' => 'form-control']) !!}
-                    </div>
-
-                    <div class="form-group">
-                        {!! Form::submit('Create Role', ['class' => 'btn btn-primary form-control']) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </div>
-            </div>
             <div class="col-md-3">
                 <div class="group">
                     {!! Form::open(['action' => 'AdminController@editUser']) !!}
@@ -185,6 +187,25 @@
 
                     <div class="form-group">
                         {!! Form::submit('Update User', ['class' => 'btn btn-primary form-control']) !!}
+                    </div>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="group">
+                    {!! Form::open(['action' => 'AdminController@makeLocation']) !!}
+                    <div class="form-group">
+                        {!! Form::label('location', 'Location:') !!}
+                        {!! Form::text('location', null, ['class' => 'form-control']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('price', 'Price:') !!}
+                        {!! Form::text('price', null, ['class' => 'form-control']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::submit('Create Location', ['class' => 'btn btn-primary form-control']) !!}
                     </div>
                     {!! Form::close() !!}
                 </div>

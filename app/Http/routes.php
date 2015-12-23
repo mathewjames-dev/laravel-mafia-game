@@ -22,11 +22,12 @@ Route::controllers([
 /// ADMIN ///
 Route::get('admin', 'AdminController@index');
 Route::post('roles', 'AdminController@createRole');
-Route::post('admin', 'AdminController@editUser');
-Route::post('admin', 'AdminController@setState');
-Route::post('admin', 'AdminController@makeGun');
-Route::post('admin', 'AdminController@makeArmor');
-Route::post('admin', 'AdminController@makeCar');
+Route::post('admin/user', 'AdminController@editUser');
+Route::post('admin/state', 'AdminController@setState');
+Route::post('admin/gun', 'AdminController@makeGun');
+Route::post('admin/armor', 'AdminController@makeArmor');
+Route::post('admin/car', 'AdminController@makeCar');
+Route::post('admin/location', 'AdminController@makeLocation');
 
 
 /// PROFILE ///
@@ -59,3 +60,15 @@ Route::post('bank', 'BankController@withdraw');
 
 /// INVENTORY ///
 Route::get('inventory', 'InventoryController@index');
+
+
+/// SHOP ///
+Route::get('shop', 'ShopController@index');
+Route::post('shop/weapon', 'ShopController@purchaseWeapon');
+Route::post('shop/armor', 'ShopController@purchaseArmor');
+Route::post('shop/car', 'ShopController@purchaseCar');
+
+
+/// TRAVEL ///
+Route::get('travel', 'TravelController@index');
+Route::post('travel/location', 'TravelController@travel');

@@ -6,7 +6,6 @@
         {!! Form::open(['action' => 'CrimeController@crime']) !!}
             {!! Form::label('state', 'Steal from a child') !!}
             {!! Form::radio('radio', '1') !!}<br>
-
         <br>
         @if ($crime1 <= \Carbon\Carbon::now())
             <b style="color:green;">Available</b>

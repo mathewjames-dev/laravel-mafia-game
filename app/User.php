@@ -70,14 +70,26 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 		return $this->belongsToMany('App\Gun');
 	}
+	public function assignGun($gun)
+	{
+		$this->guns()->attach($gun);
+	}
 
 	public function armors()
 	{
 		return $this->belongsToMany('App\Armor');
 	}
+	public function assignArmor($armor)
+	{
+		$this->armors()->attach($armor);
+	}
 
 	public function cars()
 	{
 		return $this->belongsToMany('App\Car');
+	}
+	public function assignCar($car)
+	{
+		$this->cars()->attach($car);
 	}
 }
