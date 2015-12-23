@@ -1,8 +1,47 @@
 @extends('app')
 
 @section('content')
-
+    @include('errors.list')
     <div class="col-md-12">
+        <div class="col-md-3">
+            <div class="group">
+                {!! Form::open(['action' => 'AdminController@makeGun']) !!}
+                <div class="form-group">
+                    {!! Form::label('name', 'Gun Name:') !!}
+                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('desc', 'Description:') !!}
+                    {!! Form::text('desc', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('image', 'Image:') !!}
+                    {!! Form::text('image', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('power', 'Power:') !!}
+                    {!! Form::text('power', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('accuracy', 'Accuracy:') !!}
+                    {!! Form::text('accuracy', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::label('price', 'Price:') !!}
+                    {!! Form::text('price', null, ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
+                    {!! Form::submit('Make Gun', ['class' => 'btn btn-primary form-control']) !!}
+                </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
         <div class="col-md-3">
             <div class="group">
                 {!! Form::open(['action' => 'AdminController@createRole']) !!}
@@ -25,7 +64,6 @@
                     {!! Form::submit('Create Role', ['class' => 'btn btn-primary form-control']) !!}
                 </div>
                 {!! Form::close() !!}
-                @include('errors.list')
             </div>
         </div>
         <div class="col-md-3">
@@ -45,7 +83,6 @@
                     {!! Form::submit('Update User', ['class' => 'btn btn-primary form-control']) !!}
                 </div>
                 {!! Form::close() !!}
-                @include('errors.list')
             </div>
         </div>
         <div class="col-md-3">
@@ -57,7 +94,7 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('state', 'Site State:') !!}
+                    {!! Form::label('state', 'Site State (1 = Banned, 2 = Killed):') !!}
                     {!! Form::text('state', null, ['class' => 'form-control']) !!}
                 </div>
 
@@ -65,7 +102,6 @@
                     {!! Form::submit('Update User', ['class' => 'btn btn-primary form-control']) !!}
                 </div>
                 {!! Form::close() !!}
-                @include('errors.list')
             </div>
         </div>
     </div>

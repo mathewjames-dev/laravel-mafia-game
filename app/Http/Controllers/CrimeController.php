@@ -28,7 +28,7 @@ class CrimeController extends Controller
             $crime5 = $query->crime5;
 
 
-            return view('crime', compact('crime1', 'crime2', 'crime3', 'crime4', 'crime5'));
+            return view('crime.crime', compact('crime1', 'crime2', 'crime3', 'crime4', 'crime5'));
         }
         else
         {

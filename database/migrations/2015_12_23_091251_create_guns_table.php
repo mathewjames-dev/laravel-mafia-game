@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBanksTable extends Migration
+class CreateGunsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,15 @@ class CreateBanksTable extends Migration
      */
     public function up()
     {
-        Schema::create('banks', function(Blueprint $table)
+        Schema::create('guns', function(Blueprint $table)
         {
             $table->increments('id')->unsigned();
             $table->string('name');
-            $table->string('money')->default('0');
+            $table->text('description');
+            $table->string('image');
+            $table->integer('power');
+            $table->integer('accuracy');
+            $table->string('price');
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateBanksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('banks');
+        //
     }
 }

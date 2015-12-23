@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gun;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SetStateRequest;
 use App\Http\Requests;
@@ -16,6 +17,7 @@ use App\Role;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\CreateRoleRequest;
 use App\Http\Requests\EditUserRequest;
+use App\Http\Requests\MakeGunRequest;
 
 class AdminController extends Controller
 {
@@ -61,6 +63,20 @@ class AdminController extends Controller
 
         $user->sitestate = $state;
         $user->save();
+
+        return redirect('/admin');
+    }
+
+    public function makeGun(MakeGunRequest $request)
+    {
+        $gun = new Gun();
+        $gun->name = Input::get('name');
+        $gun->description = Input::get('desc');
+        $gun->image = Input::get('image');
+        $gun->power = Input::get('power');
+        $gun->accuracy = Input::get('accuracy');
+        $gun->price = Input::get('price');
+        $gun->save();
 
         return redirect('/admin');
     }

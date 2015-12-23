@@ -24,6 +24,7 @@ Route::get('admin', 'AdminController@index');
 Route::post('roles', 'AdminController@createRole');
 Route::post('admin', 'AdminController@editUser');
 Route::post('admin', 'AdminController@setState');
+Route::post('admin', 'AdminController@makeGun');
 
 
 /// PROFILE ///
@@ -51,5 +52,8 @@ Route::get('jail', 'JailController@index');
 /// BANK ///
 Route::get('bank', 'BankController@index');
 Route::post('bank/{user_name}', 'BankController@store');
-
 Route::post('bank', 'BankController@withdraw');
+
+
+/// INVENTORY ///
+Route::get('inventory', 'InventoryController@index');

@@ -24,9 +24,11 @@
 				<div class="panel-body">
 					<a href="/search">Search a player</a>
 					<br>
-					<a href="/crime">Commit a Crime</a>
+					<a href="/inventory">Inventory</a>
 					<br>
 					<a href="/bank">Bank</a>
+					<br>
+					<a href="/crime">Commit a Crime</a>
 				</div>
 
 				<div class="panel-heading">Social</div>

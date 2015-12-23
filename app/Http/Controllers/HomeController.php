@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use App\User;
 use Carbon\Carbon;
+use App\CrimeTime;
+use App\Bank;
 class HomeController extends Controller {
 
 	/*
