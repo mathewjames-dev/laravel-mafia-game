@@ -31,9 +31,10 @@
 					<a href="/bank">Bank</a>
 					<br>
 					<a href="/shop">Shop</a>
-
 					<br>
 					<a href="/travel">Travel</a>
+					<br>
+					<a href="/kill">Kill</a>
 				</div>
 
 				<div class="panel-heading">Social</div>

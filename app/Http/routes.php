@@ -72,3 +72,8 @@ Route::post('shop/car', 'ShopController@purchaseCar');
 /// TRAVEL ///
 Route::get('travel', 'TravelController@index');
 Route::post('travel/location', 'TravelController@travel');
+
+
+/// KILL ///
+Route::get('kill', 'KillController@index');
+Route::post('kill/{user_name}', 'KillController@killPlayer');

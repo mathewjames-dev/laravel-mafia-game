@@ -179,150 +179,121 @@ class ShopController extends Controller
     {
         $user = Auth::user();
         $radioButton = Input::get('radio');
+        $armors = $user->armors->count();
 
-        if($radioButton == 'Guard Dog')
-        {
-            $armor = Armor::where('name', '=', 'Guard Dog')->first();
-            if($user->money >= $armor->price)
-            {
+        if($armors < 1) {
+            if ($radioButton == 'Guard Dog') {
+                $armor = Armor::where('name', '=', 'Guard Dog')->first();
+                if ($user->money >= $armor->price) {
 
-                $user->money -= $armor->price;
-                $user->assignArmor($armor);
-                $user->save();
+                    $user->money -= $armor->price;
+                    $user->assignArmor($armor);
+                    $user->save();
 
-                session()->flash('flash_message', 'You bought the item!');
+                    session()->flash('flash_message', 'You bought the item!');
+                    return redirect('/shop');
+                } else {
+                    session()->flash('flash_message_important', 'Not Enough Money!');
+                    return redirect('/shop');
+                }
+
+            } elseif ($radioButton == 'Trained Guard Dog') {
+                $armor = Armor::where('name', '=', 'Trained Guard Dog')->first();
+                if ($user->money >= $armor->price) {
+
+                    $user->money -= $armor->price;
+                    $user->assignArmor($armor);
+                    $user->save();
+
+                    session()->flash('flash_message', 'You bought the item!');
+                    return redirect('/shop');
+                } else {
+                    session()->flash('flash_message_important', 'Not Enough Money!');
+                    return redirect('/shop');
+                }
+
+            } elseif ($radioButton == 'Armed Escort') {
+                $armor = Armor::where('name', '=', 'Armed Escort')->first();
+                if ($user->money >= $armor->price) {
+
+                    $user->money -= $armor->price;
+                    $user->assignArmor($armor);
+                    $user->save();
+
+                    session()->flash('flash_message', 'You bought the item!');
+                    return redirect('/shop');
+                } else {
+                    session()->flash('flash_message_important', 'Not Enough Money!');
+                    return redirect('/shop');
+                }
+
+            } elseif ($radioButton == '2 Armed Escorts') {
+                $armor = Armor::where('name', '=', '2 Armed Escorts')->first();
+                if ($user->money >= $armor->price) {
+
+                    $user->money -= $armor->price;
+                    $user->assignArmor($armor);
+                    $user->save();
+
+                    session()->flash('flash_message', 'You bought the item!');
+                    return redirect('/shop');
+                } else {
+                    session()->flash('flash_message_important', 'Not Enough Money!');
+                    return redirect('/shop');
+                }
+
+            } elseif ($radioButton == 'Reinforced Pontiac') {
+                $armor = Armor::where('name', '=', 'Reinforced Pontiac')->first();
+                if ($user->money >= $armor->price) {
+
+                    $user->money -= $armor->price;
+                    $user->assignArmor($armor);
+                    $user->save();
+
+                    session()->flash('flash_message', 'You bought the item!');
+                    return redirect('/shop');
+                } else {
+                    session()->flash('flash_message_important', 'Not Enough Money!');
+                    return redirect('/shop');
+                }
+
+            } elseif ($radioButton == 'Armored Ford T.') {
+                $armor = Armor::where('name', '=', 'Armored Ford T.')->first();
+                if ($user->money >= $armor->price) {
+
+                    $user->money -= $armor->price;
+                    $user->assignArmor($armor);
+                    $user->save();
+
+                    session()->flash('flash_message', 'You bought the item!');
+                    return redirect('/shop');
+                } else {
+                    session()->flash('flash_message_important', 'Not Enough Money!');
+                    return redirect('/shop');
+                }
+
+            } elseif ($radioButton == 'Armored Duesenberg') {
+                $armor = Armor::where('name', '=', 'Armored Duesenberg')->first();
+                if ($user->money >= $armor->price) {
+
+                    $user->money -= $armor->price;
+                    $user->assignArmor($armor);
+                    $user->save();
+
+                    session()->flash('flash_message', 'You bought the item!');
+                    return redirect('/shop');
+                } else {
+                    session()->flash('flash_message_important', 'Not Enough Money!');
+                    return redirect('/shop');
+                }
+
+            } else {
+                session()->flash('flash_message_important', 'You Failed To Purchase The Item!!');
                 return redirect('/shop');
             }
-            else
-            {
-                session()->flash('flash_message_important', 'Not Enough Money!');
-                return redirect('/shop');
-            }
-
         }
-        elseif($radioButton == 'Trained Guard Dog')
-        {
-            $armor = Armor::where('name', '=', 'Trained Guard Dog')->first();
-            if($user->money >= $armor->price)
-            {
-
-                $user->money -= $armor->price;
-                $user->assignArmor($armor);
-                $user->save();
-
-                session()->flash('flash_message', 'You bought the item!');
-                return redirect('/shop');
-            }
-            else
-            {
-                session()->flash('flash_message_important', 'Not Enough Money!');
-                return redirect('/shop');
-            }
-
-        }
-        elseif($radioButton == 'Armed Escort')
-        {
-            $armor = Armor::where('name', '=', 'Armed Escort')->first();
-            if($user->money >= $armor->price)
-            {
-
-                $user->money -= $armor->price;
-                $user->assignArmor($armor);
-                $user->save();
-
-                session()->flash('flash_message', 'You bought the item!');
-                return redirect('/shop');
-            }
-            else
-            {
-                session()->flash('flash_message_important', 'Not Enough Money!');
-                return redirect('/shop');
-            }
-
-        }
-        elseif($radioButton == '2 Armed Escorts')
-        {
-            $armor = Armor::where('name', '=', '2 Armed Escorts')->first();
-            if($user->money >= $armor->price)
-            {
-
-                $user->money -= $armor->price;
-                $user->assignArmor($armor);
-                $user->save();
-
-                session()->flash('flash_message', 'You bought the item!');
-                return redirect('/shop');
-            }
-            else
-            {
-                session()->flash('flash_message_important', 'Not Enough Money!');
-                return redirect('/shop');
-            }
-
-        }
-        elseif($radioButton == 'Reinforced Pontiac')
-        {
-            $armor = Armor::where('name', '=', 'Reinforced Pontiac')->first();
-            if($user->money >= $armor->price)
-            {
-
-                $user->money -= $armor->price;
-                $user->assignArmor($armor);
-                $user->save();
-
-                session()->flash('flash_message', 'You bought the item!');
-                return redirect('/shop');
-            }
-            else
-            {
-                session()->flash('flash_message_important', 'Not Enough Money!');
-                return redirect('/shop');
-            }
-
-        }
-        elseif($radioButton == 'Armored Ford T.')
-        {
-            $armor = Armor::where('name', '=', 'Armored Ford T.')->first();
-            if($user->money >= $armor->price)
-            {
-
-                $user->money -= $armor->price;
-                $user->assignArmor($armor);
-                $user->save();
-
-                session()->flash('flash_message', 'You bought the item!');
-                return redirect('/shop');
-            }
-            else
-            {
-                session()->flash('flash_message_important', 'Not Enough Money!');
-                return redirect('/shop');
-            }
-
-        }
-        elseif($radioButton == 'Armored Duesenberg')
-        {
-            $armor = Armor::where('name', '=', 'Armored Duesenberg')->first();
-            if($user->money >= $armor->price)
-            {
-
-                $user->money -= $armor->price;
-                $user->assignArmor($armor);
-                $user->save();
-
-                session()->flash('flash_message', 'You bought the item!');
-                return redirect('/shop');
-            }
-            else
-            {
-                session()->flash('flash_message_important', 'Not Enough Money!');
-                return redirect('/shop');
-            }
-
-        }
-        else
-        {
-            session()->flash('flash_message_important', 'You Failed To Purchase The Item!!');
+        else{
+            session()->flash('flash_message_important', 'Sell your current armor first!!');
             return redirect('/shop');
         }
     }

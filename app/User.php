@@ -74,6 +74,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 		$this->guns()->attach($gun);
 	}
+	public function removeGun($gun)
+	{
+		$this->guns()->detach($gun);
+	}
 
 	public function armors()
 	{
