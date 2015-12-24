@@ -38,6 +38,7 @@ class KillController extends Controller
         $playerFind = User::where('name', '=', $player)->first();
         $armor = $playerFind->armors->count();
         $armors = $playerFind->armors->first();
+
         if($player == $user->name)
         {
             return redirect('/kill');
@@ -64,6 +65,8 @@ class KillController extends Controller
                         if ($playerFind->health <= 0) {
                             $playerFind->sitestate = 2;
                             $playerFind->save();
+                            $user->removeGun($gun);
+                            $user->save();
                             session()->flash('flash_message', 'You killed the player!');
                             return redirect('/home');
                         } else {
@@ -71,6 +74,10 @@ class KillController extends Controller
                             return redirect('/home');
                         }
 
+                    }
+                    else{
+                        session()->flash('flash_message_important', 'Your weapon is too weak for this user!');
+                        return redirect('/kill');
                     }
                 } else {
                     $playerFind->health -= $gun->power * rand(5, 15);
@@ -107,6 +114,8 @@ class KillController extends Controller
                         if ($playerFind->health <= 0) {
                             $playerFind->sitestate = 2;
                             $playerFind->save();
+                            $user->removeGun($gun);
+                            $user->save();
                             session()->flash('flash_message', 'You killed the player!');
                             return redirect('/home');
                         } else {
@@ -114,6 +123,10 @@ class KillController extends Controller
                             return redirect('/home');
                         }
 
+                    }
+                    else{
+                        session()->flash('flash_message_important', 'Your weapon is too weak for this user!');
+                        return redirect('/kill');
                     }
                 } else {
                     $playerFind->health -= $gun->power * rand(5, 15);
@@ -151,6 +164,8 @@ class KillController extends Controller
                         if ($playerFind->health <= 0) {
                             $playerFind->sitestate = 2;
                             $playerFind->save();
+                            $user->removeGun($gun);
+                            $user->save();
                             session()->flash('flash_message', 'You killed the player!');
                             return redirect('/home');
                         } else {
@@ -158,6 +173,10 @@ class KillController extends Controller
                             return redirect('/home');
                         }
 
+                    }
+                    else{
+                        session()->flash('flash_message_important', 'Your weapon is too weak for this user!');
+                        return redirect('/kill');
                     }
                 } else {
                     $playerFind->health -= $gun->power * rand(5, 15);
@@ -187,7 +206,7 @@ class KillController extends Controller
                         $playerFind->health -= $health;
 
                         $user->exp += $kill_exp;
-                        $user->money += $kill_money;
+                        $user->money += $kill_money;;
 
                         $user->save();
                         $playerFind->save();
@@ -195,6 +214,8 @@ class KillController extends Controller
                         if ($playerFind->health <= 0) {
                             $playerFind->sitestate = 2;
                             $playerFind->save();
+                            $user->removeGun($gun);
+                            $user->save();
                             session()->flash('flash_message', 'You killed the player!');
                             return redirect('/home');
                         } else {
@@ -202,6 +223,10 @@ class KillController extends Controller
                             return redirect('/home');
                         }
 
+                    }
+                    else{
+                        session()->flash('flash_message_important', 'Your weapon is too weak for this user!');
+                        return redirect('/kill');
                     }
                 } else {
                     $playerFind->health -= $gun->power * rand(5, 15);
@@ -239,6 +264,8 @@ class KillController extends Controller
                         if ($playerFind->health <= 0) {
                             $playerFind->sitestate = 2;
                             $playerFind->save();
+                            $user->removeGun($gun);
+                            $user->save();
                             session()->flash('flash_message', 'You killed the player!');
                             return redirect('/home');
                         } else {
@@ -246,6 +273,10 @@ class KillController extends Controller
                             return redirect('/home');
                         }
 
+                    }
+                    else{
+                        session()->flash('flash_message_important', 'Your weapon is too weak for this user!');
+                        return redirect('/kill');
                     }
                 } else {
                     $playerFind->health -= $gun->power * rand(5, 15);
@@ -283,6 +314,8 @@ class KillController extends Controller
                         if ($playerFind->health <= 0) {
                             $playerFind->sitestate = 2;
                             $playerFind->save();
+                            $user->removeGun($gun);
+                            $user->save();
                             session()->flash('flash_message', 'You killed the player!');
                             return redirect('/home');
                         } else {
@@ -290,6 +323,10 @@ class KillController extends Controller
                             return redirect('/home');
                         }
 
+                    }
+                    else{
+                        session()->flash('flash_message_important', 'Your weapon is too weak for this user!');
+                        return redirect('/kill');
                     }
                 } else {
                     $playerFind->health -= $gun->power * rand(5, 15);
@@ -327,6 +364,8 @@ class KillController extends Controller
                         if ($playerFind->health <= 0) {
                             $playerFind->sitestate = 2;
                             $playerFind->save();
+                            $user->removeGun($gun);
+                            $user->save();
                             session()->flash('flash_message', 'You killed the player!');
                             return redirect('/home');
                         } else {
@@ -334,6 +373,10 @@ class KillController extends Controller
                             return redirect('/home');
                         }
 
+                    }
+                    else{
+                        session()->flash('flash_message_important', 'Your weapon is too weak for this user!');
+                        return redirect('/kill');
                     }
                 } else {
                     $playerFind->health -= $gun->power * rand(5, 15);
