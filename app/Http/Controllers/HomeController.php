@@ -45,6 +45,7 @@ class HomeController extends Controller {
 			$rank = $user->rank;
 			$health = $user->health;
 			$points = $user->points;
+			$location = $user->location;
 			$onlineUsers = User::orderBy('updated_at', 'DESC')->take(5)->get();
 
 			if($exp <= 51){
@@ -87,7 +88,7 @@ class HomeController extends Controller {
 			} else if ($user->sitestate == 2) {
 				return "your account was killed! Sign up again";
 			} else {
-				return view('home', compact('name', 'money', 'exp', 'rank', 'health', 'points', 'onlineUsers'));
+				return view('home', compact('name', 'money', 'exp', 'rank', 'health', 'points', 'onlineUsers', 'location'));
 			}
 		}
 		else

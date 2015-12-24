@@ -40,7 +40,7 @@
 				<div class="panel-heading">Social</div>
 
 				<div class="panel-body">
-					Some links go here
+					<a href="http://sezgi.bbforum.co/">Forums</a>
 				</div>
 			</div>
 		</div>
@@ -51,6 +51,7 @@
 
 				<div class="panel-body">
 					Username: {{ $name }}<br>
+					Location: {{ $location }}<br>
 					Money: {{ $money }}<br>
 					Experience: {{ $exp }}<br>
 					Rank: {{ $rank }}<br>

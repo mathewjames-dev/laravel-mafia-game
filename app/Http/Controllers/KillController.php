@@ -43,28 +43,29 @@ class KillController extends Controller
         {
             return redirect('/kill');
         }
-        else {
+        elseif($playerFind->location == $user->location) {
             if ($radioButton == 'Colt Derringer') {
                 $gun = Gun::where('name', '=', 'Colt Derringer')->first();
                 if ($armor > 0) {
                     if ($gun->power > $armors->defence) {
 
                         $difference = $armors->defence -= $gun->power;
-                        $kill_exp = rand(100, 500);
-                        $kill_money = $playerFind->money;
 
                         $health = $difference * rand(5, 15);
                         $playerFind->health -= $health;
 
-                        $user->exp += $kill_exp;
-                        $user->money += $kill_money;
-
-                        $user->save();
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
+                            $kill_exp = rand(100, 500);
+                            $kill_money = $playerFind->money;
+
                             $playerFind->sitestate = 2;
+                            $playerFind->money = 0;
                             $playerFind->save();
+
+                            $user->exp += $kill_exp;
+                            $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
                             session()->flash('flash_message', 'You killed the player!');
@@ -85,8 +86,17 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
+                        $kill_exp = rand(100, 500);
+                        $kill_money = $playerFind->money;
+
                         $playerFind->sitestate = 2;
+                        $playerFind->money = 0;
                         $playerFind->save();
+
+                        $user->exp += $kill_exp;
+                        $user->money += $kill_money;
+                        $user->removeGun($gun);
+                        $user->save();
                         session()->flash('flash_message', 'You killed the player!');
                         return redirect('/home');
                     } else {
@@ -99,21 +109,23 @@ class KillController extends Controller
                 if ($armor > 0) {
                     if ($gun->power > $armors->defence) {
 
-                        $difference = $gun->power - $armors->defence;
-                        $kill_exp = rand(100, 500);
-                        $kill_money = $playerFind->money;
+                        $difference = $armors->defence -= $gun->power;
+
                         $health = $difference * rand(5, 15);
                         $playerFind->health -= $health;
 
-                        $user->exp += $kill_exp;
-                        $user->money += $kill_money;
-
-                        $user->save();
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
+                            $kill_exp = rand(100, 500);
+                            $kill_money = $playerFind->money;
+
                             $playerFind->sitestate = 2;
+                            $playerFind->money = 0;
                             $playerFind->save();
+
+                            $user->exp += $kill_exp;
+                            $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
                             session()->flash('flash_message', 'You killed the player!');
@@ -134,8 +146,17 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
+                        $kill_exp = rand(100, 500);
+                        $kill_money = $playerFind->money;
+
                         $playerFind->sitestate = 2;
+                        $playerFind->money = 0;
                         $playerFind->save();
+
+                        $user->exp += $kill_exp;
+                        $user->money += $kill_money;
+                        $user->removeGun($gun);
+                        $user->save();
                         session()->flash('flash_message', 'You killed the player!');
                         return redirect('/home');
                     } else {
@@ -148,22 +169,23 @@ class KillController extends Controller
                 if ($armor > 0) {
                     if ($gun->power > $armors->defence) {
 
-                        $difference = $gun->power - $armors->defence;
-                        $kill_exp = rand(100, 500);
-                        $kill_money = $playerFind->money;
+                        $difference = $armors->defence -= $gun->power;
 
                         $health = $difference * rand(5, 15);
                         $playerFind->health -= $health;
 
-                        $user->exp += $kill_exp;
-                        $user->money += $kill_money;
-
-                        $user->save();
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
+                            $kill_exp = rand(100, 500);
+                            $kill_money = $playerFind->money;
+
                             $playerFind->sitestate = 2;
+                            $playerFind->money = 0;
                             $playerFind->save();
+
+                            $user->exp += $kill_exp;
+                            $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
                             session()->flash('flash_message', 'You killed the player!');
@@ -184,8 +206,17 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
+                        $kill_exp = rand(100, 500);
+                        $kill_money = $playerFind->money;
+
                         $playerFind->sitestate = 2;
+                        $playerFind->money = 0;
                         $playerFind->save();
+
+                        $user->exp += $kill_exp;
+                        $user->money += $kill_money;
+                        $user->removeGun($gun);
+                        $user->save();
                         session()->flash('flash_message', 'You killed the player!');
                         return redirect('/home');
                     } else {
@@ -198,22 +229,23 @@ class KillController extends Controller
                 if ($armor > 0) {
                     if ($gun->power > $armors->defence) {
 
-                        $difference = $gun->power - $armors->defence;
-                        $kill_exp = rand(100, 500);
-                        $kill_money = $playerFind->money;
+                        $difference = $armors->defence -= $gun->power;
 
                         $health = $difference * rand(5, 15);
                         $playerFind->health -= $health;
 
-                        $user->exp += $kill_exp;
-                        $user->money += $kill_money;;
-
-                        $user->save();
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
+                            $kill_exp = rand(100, 500);
+                            $kill_money = $playerFind->money;
+
                             $playerFind->sitestate = 2;
+                            $playerFind->money = 0;
                             $playerFind->save();
+
+                            $user->exp += $kill_exp;
+                            $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
                             session()->flash('flash_message', 'You killed the player!');
@@ -234,8 +266,17 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
+                        $kill_exp = rand(100, 500);
+                        $kill_money = $playerFind->money;
+
                         $playerFind->sitestate = 2;
+                        $playerFind->money = 0;
                         $playerFind->save();
+
+                        $user->exp += $kill_exp;
+                        $user->money += $kill_money;
+                        $user->removeGun($gun);
+                        $user->save();
                         session()->flash('flash_message', 'You killed the player!');
                         return redirect('/home');
                     } else {
@@ -248,22 +289,23 @@ class KillController extends Controller
                 if ($armor > 0) {
                     if ($gun->power > $armors->defence) {
 
-                        $difference = $gun->power - $armors->defence;
-                        $kill_exp = rand(100, 500);
-                        $kill_money = $playerFind->money;
+                        $difference = $armors->defence -= $gun->power;
 
                         $health = $difference * rand(5, 15);
                         $playerFind->health -= $health;
 
-                        $user->exp += $kill_exp;
-                        $user->money += $kill_money;
-
-                        $user->save();
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
+                            $kill_exp = rand(100, 500);
+                            $kill_money = $playerFind->money;
+
                             $playerFind->sitestate = 2;
+                            $playerFind->money = 0;
                             $playerFind->save();
+
+                            $user->exp += $kill_exp;
+                            $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
                             session()->flash('flash_message', 'You killed the player!');
@@ -284,8 +326,17 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
+                        $kill_exp = rand(100, 500);
+                        $kill_money = $playerFind->money;
+
                         $playerFind->sitestate = 2;
+                        $playerFind->money = 0;
                         $playerFind->save();
+
+                        $user->exp += $kill_exp;
+                        $user->money += $kill_money;
+                        $user->removeGun($gun);
+                        $user->save();
                         session()->flash('flash_message', 'You killed the player!');
                         return redirect('/home');
                     } else {
@@ -298,22 +349,23 @@ class KillController extends Controller
                 if ($armor > 0) {
                     if ($gun->power > $armors->defence) {
 
-                        $difference = $gun->power - $armors->defence;
-                        $kill_exp = rand(100, 500);
-                        $kill_money = $playerFind->money;
+                        $difference = $armors->defence -= $gun->power;
 
                         $health = $difference * rand(5, 15);
                         $playerFind->health -= $health;
 
-                        $user->exp += $kill_exp;
-                        $user->money += $kill_money;
-
-                        $user->save();
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
+                            $kill_exp = rand(100, 500);
+                            $kill_money = $playerFind->money;
+
                             $playerFind->sitestate = 2;
+                            $playerFind->money = 0;
                             $playerFind->save();
+
+                            $user->exp += $kill_exp;
+                            $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
                             session()->flash('flash_message', 'You killed the player!');
@@ -334,8 +386,17 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
+                        $kill_exp = rand(100, 500);
+                        $kill_money = $playerFind->money;
+
                         $playerFind->sitestate = 2;
+                        $playerFind->money = 0;
                         $playerFind->save();
+
+                        $user->exp += $kill_exp;
+                        $user->money += $kill_money;
+                        $user->removeGun($gun);
+                        $user->save();
                         session()->flash('flash_message', 'You killed the player!');
                         return redirect('/home');
                     } else {
@@ -348,22 +409,23 @@ class KillController extends Controller
                 if ($armor > 0) {
                     if ($gun->power > $armors->defence) {
 
-                        $difference = $gun->power - $armors->defence;
-                        $kill_exp = rand(100, 500);
-                        $kill_money = $playerFind->money;
+                        $difference = $armors->defence -= $gun->power;
 
                         $health = $difference * rand(5, 15);
                         $playerFind->health -= $health;
 
-                        $user->exp += $kill_exp;
-                        $user->money += $kill_money;
-
-                        $user->save();
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
+                            $kill_exp = rand(100, 500);
+                            $kill_money = $playerFind->money;
+
                             $playerFind->sitestate = 2;
+                            $playerFind->money = 0;
                             $playerFind->save();
+
+                            $user->exp += $kill_exp;
+                            $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
                             session()->flash('flash_message', 'You killed the player!');
@@ -384,8 +446,17 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
+                        $kill_exp = rand(100, 500);
+                        $kill_money = $playerFind->money;
+
                         $playerFind->sitestate = 2;
+                        $playerFind->money = 0;
                         $playerFind->save();
+
+                        $user->exp += $kill_exp;
+                        $user->money += $kill_money;
+                        $user->removeGun($gun);
+                        $user->save();
                         session()->flash('flash_message', 'You killed the player!');
                         return redirect('/home');
                     } else {
@@ -397,6 +468,9 @@ class KillController extends Controller
                 session()->flash('flash_message_important', 'You Failed To Kill Anyone!!');
                 return redirect('/home');
             }
+        }else{
+            session()->flash('flash_message_important', 'You are not in the same location!!');
+            return redirect('/home');
         }
     }
 }
