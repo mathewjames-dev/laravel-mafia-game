@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Slot;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -38,6 +39,8 @@ class KillController extends Controller
         $playerFind = User::where('name', '=', $player)->first();
         $armor = $playerFind->armors->count();
         $armors = $playerFind->armors->first();
+        $slots = Slot::where('owner', '=', $playerFind->name)->first();
+        $kill_exp = rand(100, 500);
 
         if($player == $user->name)
         {
@@ -57,7 +60,6 @@ class KillController extends Controller
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
-                            $kill_exp = rand(100, 500);
                             $kill_money = $playerFind->money;
 
                             $playerFind->sitestate = 2;
@@ -68,8 +70,16 @@ class KillController extends Controller
                             $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
-                            session()->flash('flash_message', 'You killed the player!');
-                            return redirect('/home');
+                            if ($slots->owner == $playerFind->name) {
+                                $slots->owner = $user->name;
+                                $slots->save();
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
+                            else{
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
                         } else {
                             session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                             return redirect('/home');
@@ -86,7 +96,6 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
-                        $kill_exp = rand(100, 500);
                         $kill_money = $playerFind->money;
 
                         $playerFind->sitestate = 2;
@@ -97,8 +106,16 @@ class KillController extends Controller
                         $user->money += $kill_money;
                         $user->removeGun($gun);
                         $user->save();
-                        session()->flash('flash_message', 'You killed the player!');
-                        return redirect('/home');
+                        if ($slots->owner == $playerFind->name) {
+                            $slots->owner = $user->name;
+                            $slots->save();
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
+                        else{
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
                     } else {
                         session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                         return redirect('/home');
@@ -117,7 +134,6 @@ class KillController extends Controller
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
-                            $kill_exp = rand(100, 500);
                             $kill_money = $playerFind->money;
 
                             $playerFind->sitestate = 2;
@@ -128,8 +144,16 @@ class KillController extends Controller
                             $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
-                            session()->flash('flash_message', 'You killed the player!');
-                            return redirect('/home');
+                            if ($slots->owner == $playerFind->name) {
+                                $slots->owner = $user->name;
+                                $slots->save();
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
+                            else{
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
                         } else {
                             session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                             return redirect('/home');
@@ -146,7 +170,6 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
-                        $kill_exp = rand(100, 500);
                         $kill_money = $playerFind->money;
 
                         $playerFind->sitestate = 2;
@@ -157,8 +180,16 @@ class KillController extends Controller
                         $user->money += $kill_money;
                         $user->removeGun($gun);
                         $user->save();
-                        session()->flash('flash_message', 'You killed the player!');
-                        return redirect('/home');
+                        if ($slots->owner == $playerFind->name) {
+                            $slots->owner = $user->name;
+                            $slots->save();
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
+                        else{
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
                     } else {
                         session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                         return redirect('/home');
@@ -177,7 +208,6 @@ class KillController extends Controller
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
-                            $kill_exp = rand(100, 500);
                             $kill_money = $playerFind->money;
 
                             $playerFind->sitestate = 2;
@@ -188,8 +218,16 @@ class KillController extends Controller
                             $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
-                            session()->flash('flash_message', 'You killed the player!');
-                            return redirect('/home');
+                            if ($slots->owner == $playerFind->name) {
+                                $slots->owner = $user->name;
+                                $slots->save();
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
+                            else{
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
                         } else {
                             session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                             return redirect('/home');
@@ -206,7 +244,6 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
-                        $kill_exp = rand(100, 500);
                         $kill_money = $playerFind->money;
 
                         $playerFind->sitestate = 2;
@@ -217,8 +254,16 @@ class KillController extends Controller
                         $user->money += $kill_money;
                         $user->removeGun($gun);
                         $user->save();
-                        session()->flash('flash_message', 'You killed the player!');
-                        return redirect('/home');
+                        if ($slots->owner == $playerFind->name) {
+                            $slots->owner = $user->name;
+                            $slots->save();
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
+                        else{
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
                     } else {
                         session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                         return redirect('/home');
@@ -237,7 +282,6 @@ class KillController extends Controller
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
-                            $kill_exp = rand(100, 500);
                             $kill_money = $playerFind->money;
 
                             $playerFind->sitestate = 2;
@@ -248,8 +292,16 @@ class KillController extends Controller
                             $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
-                            session()->flash('flash_message', 'You killed the player!');
-                            return redirect('/home');
+                            if ($slots->owner == $playerFind->name) {
+                                $slots->owner = $user->name;
+                                $slots->save();
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
+                            else{
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
                         } else {
                             session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                             return redirect('/home');
@@ -266,7 +318,6 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
-                        $kill_exp = rand(100, 500);
                         $kill_money = $playerFind->money;
 
                         $playerFind->sitestate = 2;
@@ -277,8 +328,16 @@ class KillController extends Controller
                         $user->money += $kill_money;
                         $user->removeGun($gun);
                         $user->save();
-                        session()->flash('flash_message', 'You killed the player!');
-                        return redirect('/home');
+                        if ($slots->owner == $playerFind->name) {
+                            $slots->owner = $user->name;
+                            $slots->save();
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
+                        else{
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
                     } else {
                         session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                         return redirect('/home');
@@ -297,7 +356,6 @@ class KillController extends Controller
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
-                            $kill_exp = rand(100, 500);
                             $kill_money = $playerFind->money;
 
                             $playerFind->sitestate = 2;
@@ -308,8 +366,16 @@ class KillController extends Controller
                             $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
-                            session()->flash('flash_message', 'You killed the player!');
-                            return redirect('/home');
+                            if ($slots->owner == $playerFind->name) {
+                                $slots->owner = $user->name;
+                                $slots->save();
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
+                            else{
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
                         } else {
                             session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                             return redirect('/home');
@@ -326,7 +392,6 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
-                        $kill_exp = rand(100, 500);
                         $kill_money = $playerFind->money;
 
                         $playerFind->sitestate = 2;
@@ -337,8 +402,16 @@ class KillController extends Controller
                         $user->money += $kill_money;
                         $user->removeGun($gun);
                         $user->save();
-                        session()->flash('flash_message', 'You killed the player!');
-                        return redirect('/home');
+                        if ($slots->owner == $playerFind->name) {
+                            $slots->owner = $user->name;
+                            $slots->save();
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
+                        else{
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
                     } else {
                         session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                         return redirect('/home');
@@ -357,7 +430,6 @@ class KillController extends Controller
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
-                            $kill_exp = rand(100, 500);
                             $kill_money = $playerFind->money;
 
                             $playerFind->sitestate = 2;
@@ -368,8 +440,16 @@ class KillController extends Controller
                             $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
-                            session()->flash('flash_message', 'You killed the player!');
-                            return redirect('/home');
+                            if ($slots->owner == $playerFind->name) {
+                                $slots->owner = $user->name;
+                                $slots->save();
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
+                            else{
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
                         } else {
                             session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                             return redirect('/home');
@@ -386,7 +466,6 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
-                        $kill_exp = rand(100, 500);
                         $kill_money = $playerFind->money;
 
                         $playerFind->sitestate = 2;
@@ -397,8 +476,16 @@ class KillController extends Controller
                         $user->money += $kill_money;
                         $user->removeGun($gun);
                         $user->save();
-                        session()->flash('flash_message', 'You killed the player!');
-                        return redirect('/home');
+                        if ($slots->owner == $playerFind->name) {
+                            $slots->owner = $user->name;
+                            $slots->save();
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
+                        else{
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
                     } else {
                         session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                         return redirect('/home');
@@ -417,7 +504,6 @@ class KillController extends Controller
                         $playerFind->save();
 
                         if ($playerFind->health <= 0) {
-                            $kill_exp = rand(100, 500);
                             $kill_money = $playerFind->money;
 
                             $playerFind->sitestate = 2;
@@ -428,8 +514,16 @@ class KillController extends Controller
                             $user->money += $kill_money;
                             $user->removeGun($gun);
                             $user->save();
-                            session()->flash('flash_message', 'You killed the player!');
-                            return redirect('/home');
+                            if ($slots->owner == $playerFind->name) {
+                                $slots->owner = $user->name;
+                                $slots->save();
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
+                            else{
+                                session()->flash('flash_message', 'You killed the player!');
+                                return redirect('/home');
+                            }
                         } else {
                             session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                             return redirect('/home');
@@ -446,7 +540,6 @@ class KillController extends Controller
                     $playerFind->save();
 
                     if ($playerFind->health <= 0) {
-                        $kill_exp = rand(100, 500);
                         $kill_money = $playerFind->money;
 
                         $playerFind->sitestate = 2;
@@ -457,8 +550,16 @@ class KillController extends Controller
                         $user->money += $kill_money;
                         $user->removeGun($gun);
                         $user->save();
-                        session()->flash('flash_message', 'You killed the player!');
-                        return redirect('/home');
+                        if ($slots->owner == $playerFind->name) {
+                            $slots->owner = $user->name;
+                            $slots->save();
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
+                        else{
+                            session()->flash('flash_message', 'You killed the player!');
+                            return redirect('/home');
+                        }
                     } else {
                         session()->flash('flash_message_important', 'You didnt manage to kill the player!');
                         return redirect('/home');

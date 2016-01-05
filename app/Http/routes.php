@@ -77,3 +77,12 @@ Route::post('travel/location', 'TravelController@travel');
 /// KILL ///
 Route::get('kill', 'KillController@index');
 Route::post('kill/{user_name}', 'KillController@killPlayer');
+
+
+/// BLACKJACK ///
+Route::get('blackjack/{location}', 'BlackjackController@show');
+
+
+/// SLOTS ///
+Route::get('slots/{location}', 'SlotsController@show');
+Route::post('slots/{location}', 'SlotsController@slots');

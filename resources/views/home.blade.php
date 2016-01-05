@@ -35,6 +35,15 @@
 					<a href="/travel">Travel</a>
 					<br>
 					<a href="/kill">Kill</a>
+					<br>
+				</div>
+
+				<div class="panel-heading">Gamble</div>
+
+				<div class="panel-body">
+					<a href="{{ action('BlackjackController@show', [$blackjack->location]) }}">Blackjack</a>
+					<br>
+					<a href="{{ action('SlotsController@show', [$slot->location]) }}">Slots</a>
 				</div>
 
 				<div class="panel-heading">Social</div>
@@ -69,6 +78,7 @@
 	.posts{
 		position:absolute;
 		left:-17%;
+		top: 7%;
 	}
 	.information{
 		left:67%;
